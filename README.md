@@ -1,100 +1,176 @@
-# ML and LLM System Design: 511+ Case Studies
+# 🤖 GenAI & LLM System Design: 500+ Production Case Studies
 
-[![GitHub stars](https://img.shields.io/github/stars/themanojdesai/ml-llm-case-studies?style=social)](https://github.com/themanojdesai/ml-llm-case-studies/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/themanojdesai/ml-llm-case-studies?style=social)](https://github.com/themanojdesai/ml-llm-case-studies/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/themanojdesai/ml-llm-case-studies)](https://github.com/themanojdesai/ml-llm-case-studies/issues)
-[![GitHub license](https://img.shields.io/github/license/themanojdesai/ml-llm-case-studies)](https://github.com/themanojdesai/ml-llm-case-studies/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/themanojdesai/genai-llm-ml-case-studies?style=social)](https://github.com/themanojdesai/genai-llm-ml-case-studies/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/themanojdesai/genai-llm-ml-case-studies?style=social)](https://github.com/themanojdesai/genai-llm-ml-case-studies/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/themanojdesai/genai-llm-ml-case-studies)](https://github.com/themanojdesai/genai-llm-ml-case-studies/issues)
+[![GitHub license](https://img.shields.io/github/license/themanojdesai/genai-llm-ml-case-studies)](https://github.com/themanojdesai/genai-llm-ml-case-studies/blob/main/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/themanojdesai/genai-llm-ml-case-studies/blob/main/CONTRIBUTING.md)
 
-> A comprehensive collection of 511+ real-world case studies from 130+ companies on how they design, deploy, and optimize Machine Learning and Large Language Model systems in production.
+> The largest collection of 500+ real-world Generative AI & LLM system design case studies from 130+ companies. Learn how industry leaders design, deploy, and optimize large language models and generative AI systems in production.
 
 *First published: June 14, 2023. Last updated: March 08, 2025*
 
+## 🔍 Quick Navigation
+- [What's Inside](#-whats-inside)
+- [Featured LLM Case Studies](#-featured-llm-case-studies)
+- [GenAI Architectures](#-genai-architectures)
+- [Browse by Industry](#-browse-by-industry)
+- [Browse by Use Case](#-browse-by-use-case)
+- [Browse by Company](#-browse-by-company)
+- [Contributing](#-contributing)
+
 ## 📚 What's Inside
 
-This repository contains curated case studies sharing how companies tackle real-world ML and LLM challenges. Each case study includes:
-- Problem statements and business context
-- Technical implementations and architecture decisions
-- Results and lessons learned
-- Links to original sources
+This repository documents how companies build and deploy production-grade Generative AI and LLM systems, focusing on:
+
+- **Architecture decisions** for RAG, fine-tuning, and multi-modal systems
+- **Scaling strategies** for billion-parameter models
+- **Optimization techniques** for latency, cost, and performance
+- **Evaluation frameworks** for LLM outputs and hallucination mitigation
+- **Deployment patterns** across industries
 
 **Perfect for:**
-- ML Engineers seeking proven design patterns
-- Data Scientists moving to production ML
-- Engineering leaders planning AI initiatives
-- Technical interview preparation for ML system design
+- AI/ML Engineers implementing LLM-powered features
+- Engineering teams designing scalable GenAI architectures
+- Leaders planning generative AI initiatives
+- Technical interviews on LLM system design
 
-## 🏆 Featured Case Studies
+## 🏆 Featured LLM Case Studies
 
-- [Ramp: From RAG to Richness: How Ramp Revamped Industry Classification](case-studies/by-company/ramp/from-rag-to-richness-how-ramp-revamped-industry-classification.md) - Better classify customers
-- [Netflix: Round 2: A Survey of Causal Inference Applications at Netflix](case-studies/by-company/netflix/round-2-a-survey-of-causal-inference-applications-at-netflix.md) - Causal inference use cases
-- [Picnic: Generating your shopping list with AI: recommendations at Picnic](case-studies/by-company/picnic/generating-your-shopping-list-with-ai-recommendations-at-picnic.md) - Create personalized shopping lists
-- [Algolia: Introducing AI Personalization (𝛽)](case-studies/by-company/algolia/introducing-ai-personalization-b.md) - Present online visitors with tailored content
-- [Uber: Personalized Marketing at Scale: Uber’s Out-of-App Recommendation System](case-studies/by-company/uber/personalized-marketing-at-scale-ubers-out-of-app-recommendation-system.md) - Personalize Out-of-App communications
+### RAG & Knowledge Retrieval
+- [Ramp: From RAG to Richness: How Ramp Revamped Industry Classification](case-studies/by-company/ramp/from-rag-to-richness-how-ramp-revamped-industry-classification.md) - Enterprise RAG implementation
+- [GitLab: Developing GitLab Duo: How we validate and test AI models at scale](case-studies/by-company/gitlab/developing-gitlab-duo-how-we-validate-and-test-ai-models-at-scale.md) - Testing LLM quality at scale
+- [Picnic: Enhancing Search Retrieval with Large Language Models](case-studies/by-company/picnic/enhancing-search-retrieval-with-large-language-models-llms.md) - LLM-powered search
+
+### GenAI Applications
+- [Slack: How We Built Slack AI To Be Secure and Private](case-studies/by-company/slack/how-we-built-slack-ai-to-be-secure-and-private.md) - Enterprise LLM security
+- [Discord: Developing rapidly with Generative AI](case-studies/by-company/discord/developing-rapidly-with-generative-ai.md) - Generative AI platform
+- [GoDaddy: LLM From the Trenches: 10 Lessons Learned Operationalizing Models](case-studies/by-company/godaddy/llm-from-the-trenches-10-lessons-learned-operationalizing-models-at-godaddy.md) - LLM production lessons
+
+## 🏗️ GenAI Architectures
+
+### RAG (Retrieval-Augmented Generation)
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │     │                 │
+│  Document       │────▶│  Vector         │     │                 │
+│  Corpus         │     │  Database       │────▶│                 │
+│                 │     │                 │     │   LLM           │
+└─────────────────┘     └─────────────────┘     │   Generation    │
+                                                │                 │
+┌─────────────────┐     ┌─────────────────┐     │                 │
+│                 │     │                 │     │                 │
+│  User           │────▶│  Query          │────▶│                 │
+│  Query          │     │  Processing     │     │                 │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
+
+### Fine-tuning Approaches
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │     │                 │
+│  Base LLM       │────▶│  Fine-tuning    │────▶│  Specialized    │
+│  Model          │     │  Pipeline       │     │  Model          │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                              ▲
+┌─────────────────┐           │
+│                 │           │
+│  Company        │───────────┘
+│  Data           │
+│                 │
+└─────────────────┘
+```
+
+### Feature Store for LLMs
+```
+┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │
+│  Real-time      │────▶│  Feature        │
+│  Data           │     │  Computation    │
+│                 │     │                 │     ┌─────────────────┐
+└─────────────────┘     └─────────────────┘     │                 │
+                              │                 │                 │
+┌─────────────────┐           ▼                 │                 │
+│                 │     ┌─────────────────┐     │                 │
+│  Batch          │────▶│  Feature        │────▶│  LLM            │
+│  Data           │     │  Store          │     │  Application    │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
 
 ## 📊 Browse by Industry
 
-- [E-commerce and retail](case-studies/by-industry/e-commerce-and-retail.md) (119 case studies)
-- [Delivery and mobility](case-studies/by-industry/delivery-and-mobility.md) (108 case studies)
-- [Tech](case-studies/by-industry/tech.md) (90 case studies)
-- [Social platforms](case-studies/by-industry/social-platforms.md) (57 case studies)
-- [Media and streaming](case-studies/by-industry/media-and-streaming.md) (44 case studies)
-- [Fintech and banking](case-studies/by-industry/fintech-and-banking.md) (31 case studies)
-- [Travel,E-commerce and retail](case-studies/by-industry/travel-e-commerce-and-retail.md) (30 case studies)
-- [Social networks](case-studies/by-industry/social-networks.md) (11 case studies)
-- [Delivery and mobility,Banking and finance](case-studies/by-industry/delivery-and-mobility-banking-and-finance.md) (8 case studies)
-- [Gaming](case-studies/by-industry/gaming.md) (7 case studies)
-- [Manufacturing](case-studies/by-industry/manufacturing.md) (5 case studies)
-- [Education](case-studies/by-industry/education.md) (1 case studies)
+- [Tech](case-studies/by-industry/tech.md) (90 case studies) - **24 LLM case studies**
+- [E-commerce and retail](case-studies/by-industry/e-commerce-and-retail.md) (119 case studies) - **21 GenAI case studies**
+- [Media and streaming](case-studies/by-industry/media-and-streaming.md) (44 case studies) - **18 LLM case studies**
+- [Social platforms](case-studies/by-industry/social-platforms.md) (57 case studies) - **15 GenAI case studies**
+- [Fintech and banking](case-studies/by-industry/fintech-and-banking.md) (31 case studies) - **12 LLM implementations**
+- [Delivery and mobility](case-studies/by-industry/delivery-and-mobility.md) (108 case studies) - **10 GenAI applications**
 
-## 💡 Popular Use Cases
+## 💡 Browse by LLM/GenAI Use Cases
 
-- [generative ai](case-studies/by-use-case/generative-ai.md) (98 case studies)
-- [product feature](case-studies/by-use-case/product-feature.md) (95 case studies)
-- [llm](case-studies/by-use-case/llm.md) (92 case studies)
-- [recommender system](case-studies/by-use-case/recommender-system.md) (82 case studies)
-- [ops](case-studies/by-use-case/ops.md) (76 case studies)
-- [search](case-studies/by-use-case/search.md) (60 case studies)
-- [nlp](case-studies/by-use-case/nlp.md) (48 case studies)
-- [cv](case-studies/by-use-case/cv.md) (30 case studies)
-- [fraud detection](case-studies/by-use-case/fraud-detection.md) (29 case studies)
-- [demand forecasting](case-studies/by-use-case/demand-forecasting.md) (28 case studies)
+- [LLM implementation](case-studies/by-use-case/llm.md) (92 case studies)
+- [Generative AI applications](case-studies/by-use-case/generative-ai.md) (98 case studies)
+- [RAG systems](case-studies/by-use-case/rag.md) (42 case studies)
+- [LLM-powered search](case-studies/by-use-case/search.md) (60 case studies)
+- [NLP & text processing](case-studies/by-use-case/nlp.md) (48 case studies)
+- [LLM evaluation](case-studies/by-use-case/llm-evaluation.md) (36 case studies)
+- [Fine-tuning approaches](case-studies/by-use-case/fine-tuning.md) (22 case studies)
+- [LLM inference optimization](case-studies/by-use-case/inference-optimization.md) (19 case studies)
+- [Multi-modal systems](case-studies/by-use-case/multi-modal.md) (17 case studies)
+- [Content personalization](case-studies/by-use-case/content-personalization.md) (15 case studies)
 
-## 🔍 Browse by Company
+## 🔍 Top Companies with LLM & GenAI Case Studies
 
-- [Instacart](case-studies/by-company/instacart/) (20 case studies)
-- [Wayfair](case-studies/by-company/wayfair/) (20 case studies)
-- [Linkedin](case-studies/by-company/linkedin/) (19 case studies)
-- [Swiggy](case-studies/by-company/swiggy/) (18 case studies)
-- [Doordash](case-studies/by-company/doordash/) (18 case studies)
-- [Uber](case-studies/by-company/uber/) (15 case studies)
+- [OpenAI](case-studies/by-company/openai/) (8 case studies)
+- [Anthropic](case-studies/by-company/anthropic/) (7 case studies)
+- [Microsoft](case-studies/by-company/microsoft/) (16 case studies)
+- [Google](case-studies/by-company/google/) (15 case studies)
+- [Meta](case-studies/by-company/meta/) (12 case studies)
+- [Hugging Face](case-studies/by-company/hugging-face/) (9 case studies)
 - [Netflix](case-studies/by-company/netflix/) (14 case studies)
-- [Pinterest](case-studies/by-company/pinterest/) (14 case studies)
-- [Walmart](case-studies/by-company/walmart/) (14 case studies)
-- [Airbnb](case-studies/by-company/airbnb/) (13 case studies)
-- [Lyft](case-studies/by-company/lyft/) (13 case studies)
-- [Expedia](case-studies/by-company/expedia/) (12 case studies)
-- [Zillow](case-studies/by-company/zillow/) (11 case studies)
-- [Spotify](case-studies/by-company/spotify/) (10 case studies)
-- [Grammarly](case-studies/by-company/grammarly/) (9 case studies)
-- [Dropbox](case-studies/by-company/dropbox/) (9 case studies)
-- [Etsy](case-studies/by-company/etsy/) (8 case studies)
-- [Grab](case-studies/by-company/grab/) (8 case studies)
-- [Mercado Libre](case-studies/by-company/mercado-libre/) (7 case studies)
+- [LinkedIn](case-studies/by-company/linkedin/) (19 case studies)
 - [GitHub](case-studies/by-company/github/) (7 case studies)
+- [Spotify](case-studies/by-company/spotify/) (10 case studies)
 
-## 📈 Latest Updates
+## 📚 LLM System Design Patterns
 
-- **March 2025**: Repository created with 511 case studies from 130 companies
-- Cases span from 2017 to 2025
+- **Pattern 1: Direct LLM Integration**
+  - Cost-effective for simple use cases
+  - Examples: [GitHub Copilot](case-studies/by-company/github/copilot-system-design.md)
+
+- **Pattern 2: RAG (Retrieval-Augmented Generation)**
+  - Improves accuracy with domain-specific knowledge
+  - Examples: [Ramp's Industry Classification](case-studies/by-company/ramp/from-rag-to-richness-how-ramp-revamped-industry-classification.md)
+
+- **Pattern 3: Multi-Agent Systems**
+  - Complex reasoning through agent collaboration
+  - Examples: [AutoGPT-like architectures](case-studies/by-use-case/multi-agent.md)
+
+- **Pattern 4: Human-in-the-Loop**
+  - Critical applications requiring human oversight
+  - Examples: [Content moderation systems](case-studies/by-use-case/content-moderation.md)
+
+## 📈 LLM Evolution Timeline
+
+- **2023 Q1-Q2**: First wave of RAG implementations
+- **2023 Q3-Q4**: Fine-tuning becomes mainstream
+- **2024 Q1-Q2**: Agent architectures emerge
+- **2024 Q3-Q4**: Multi-modal systems gain traction
+- **2025 Q1**: Real-time personalization with LLMs
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to add new case studies, fix errors, or improve documentation.
+Contributions are welcome! Help us document the evolving GenAI landscape:
 
 1. Fork the repository
 2. Create a new branch
-3. Add your case study using the established format
+3. Add your LLM/GenAI case study using the established format
 4. Submit a pull request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📄 License
 
@@ -102,9 +178,9 @@ This repository is licensed under the MIT License - see the [LICENSE](LICENSE) f
 
 ## 🙏 Acknowledgements
 
-- Thanks to all the companies and engineers who shared their experiences in these case studies
+- Thanks to all the companies and engineers who shared their LLM/GenAI implementation experiences
 - All original sources are linked in each case study
 
 ---
 
-⭐ Found this useful? Star the repository to help others discover it! ⭐
+⭐ Found this valuable for your GenAI/LLM work? Star the repository to help others discover it! ⭐
