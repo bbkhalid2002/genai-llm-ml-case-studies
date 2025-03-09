@@ -182,6 +182,9 @@ This repository is licensed under the MIT License - see the [LICENSE](LICENSE) f
 - Thanks to all the companies and engineers who shared their LLM/GenAI implementation experiences
 - All original sources are linked in each case study
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=themanojdesai/genai-llm-ml-case-studies&type=Date)](https://star-history.com/#themanojdesai/genai-llm-ml-case-studies&Date)
 ---
 
 ⭐ Found this valuable for your GenAI/LLM work? Star the repository to help others discover it! ⭐
