@@ -10,6 +10,8 @@
 
 *First published: June 14, 2023. Last updated: March 08, 2025*
 
+> 📍 **Original Source Attribution**: The foundational 500 ML case studies in this repository were originally curated by [Evidently AI](https://www.evidentlyai.com/ml-system-design). This repository builds upon their excellent work, expanding with additional GenAI and LLM-focused content and organization.
+
 ## 🔍 Quick Navigation
 - [What's Inside](#-whats-inside)
 - [Featured LLM Case Studies](#-featured-llm-case-studies)
